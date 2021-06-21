@@ -1,0 +1,42 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Explain purpose if anyone asks
+  steps:
+    - intent: purpose
+    - action: utter_idomovierecs
+
+- rule: Activate form 1
+  steps:
+    - intent: movie_Recs
+    - action: movie_form
+    - active_loop: movie_form
+
+- rule: submit form 1
+  condition:
+  - active_loop: movie_form
+  steps:
+  - action: movie_form
+  - active_loop: null
+  - slot_was_set:
+      - requested_slot: null
+  - action: action_movieRecs
+
+- rule: Activate action 2
+  steps:
+    - intent: askWithActor
+    - action: movie_actor_form
+    - slot_was_set:
+        - requested_slot: null
+    - action: action_movieRecsActor

@@ -1,0 +1,113 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - movie_Recs
+  - purpose
+  - informLang
+  - informGenre
+  - allAtOnce
+  - reset
+  - askWithActor
+
+entities:
+  - language
+  - genre
+  - PERSON  # named entity recognition for names? prob exists, do we need a slot for this one if it's not mandatory?r
+
+slots:
+  gen:
+    type: categorical
+    influence_conversation: false
+    values:
+      - action
+      - adventure
+      - animated
+      - comedy
+      - romance
+      - drama
+      - crime
+      - music
+      - musical
+      - fantasy
+      - horror
+      - sci-fi
+      - mystery
+      - documentary
+  lang:
+    type: categorical
+    influence_conversation: false
+    values:
+      - English
+      - Spanish
+      - Bengali
+      - Hindi
+      - French
+      - Korean
+  actor:
+    type: text
+    influence_conversation: false
+
+
+forms:
+  movie_form:
+    required_slots:
+      lang:
+        - type: from_entity
+          entity: language
+      gen:
+        - type: from_entity
+          entity: genre
+  movie_actor_form:
+    required_slots:
+      actor:
+        - type: from_entity
+          entity: PERSON
+          intent: askWithActor
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, what can I do for you?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_idomovierecs:
+  - text: "I can do movie recommendations!"
+
+  utter_ask_movie_form_gen:
+  - text: "Which genre do you prefer? "
+
+  utter_ask_movie_form_lang:
+  - text: "Do you have a language preference?"
+
+  utter_askrating:
+  - text: "What rating do you desire at minimum (out of 10)"
+
+actions:
+  - action_movieRecs
+  - action_movieRecsActor
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

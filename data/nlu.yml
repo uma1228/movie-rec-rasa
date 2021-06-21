@@ -1,0 +1,186 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - yo yo
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - howdy
+    - hola
+    - what's up
+    - hey hey hey
+
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - ok bye
+    - thanks bye
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yep
+    - right
+    - yeah
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - not at all
+    - not quite
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - not bad
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you a real person?
+    - who am I talking to?
+
+- intent: movie_Recs
+  examples: |
+    - can you recommend me some films?
+    - do you have any movie recs?
+    - do you know any nice movies for me to watch?
+    - can you do film recommendations?
+    - can i have a movie rec
+    - do u have any movie recs
+    - movie rec??
+
+
+- intent: purpose
+  examples: |
+    - what do you do?
+    - what is your purpose?
+    - what can you do?
+    - what things are you capable of?
+    - can you explain what you do
+    - what can you do?
+    - what kind of things do you do
+
+- intent: informLang
+  examples: |
+    - i would like a [spanish](language) movie
+    - [english](language)
+    - [bengali](language)
+    - [hindi] (language)
+    - [french](language)
+    - [English](language), please
+    - [Bengali](language), please!
+    - [korean](language)
+    - today I'm feeling [hindi](language)
+    - can i have an [english](language) movie please
+    - [Hindi](language) would be nice!
+
+- intent: informGenre
+  examples: |
+    - can I have a [comedy](genre) movie please
+    - what about [action](genre)?
+    - [musical](genre)
+    - [sci-fi](genre), please!
+    - i'm really feeling a [drama](genre) movie today
+    - ooh what about [music](genre)!
+    - [adventure](genre)!!
+    - what about [romance](genre) this time!
+
+- intent: allAtOnce
+  examples: |
+    - can I have a [Spanish](language) [comedy](genre) movie please?
+    - can you suggest a [action](genre) movie that is in [korean](language)
+    - [hindi](language) [romance](genre)
+    - can you recommend a film that is in [english](language) and is [comedy](genre)
+    - i would like an [english](language) movie that is [comedy](genre) please
+
+- intent: reset
+  examples: |
+    - actually i've changed my mind
+    - can you reset
+    - can you erase that please
+    - i don't want that anymore
+    - nevermind actually can I ask for a different one
+    - can we run this again
+    - run it back
+    - can i ask for a different movie rec
+
+- intent: askWithActor
+  examples: |
+    - can I have a movie starring [Aamir Khan](PERSON)?
+    - [Song Joong-Ki](PERSON) movie please?
+    - can I have an [action](genre) movie with [Brad Pitt](PERSON) please?
+    - movie starring [Uttam Kumar](PERSON)
+    - can you recommend a [Korean](language) movie with [Jungkook](PERSON) please
+    - can you suggest a film starring [Awkwafina](PERSON)
+    - [Taylor Swift](PERSON) movie
+    - [Jack Black](PERSON)
+    - [Jeff Goldblum](PERSON) movie would be fantastic
+    - give me a [Park So-Dam](PERSON) movie
+    - i think it would be great if you could suggest any movie starring [Michael J. Fox](PERSON)
+

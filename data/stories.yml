@@ -1,0 +1,99 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: movie rec path
+  steps:
+    - intent: purpose
+    - action: utter_idomovierecs
+
+- story: story with a form
+  steps:
+  - intent: movie_Recs
+  - action: movie_form
+  - active_loop: movie_form           # This form is currently active
+  - active_loop: null                      # Form complete, no form is active
+  - action: action_movieRecs
+
+- story: ideal convo
+  steps:
+  - user: |
+      howdy! hi! how's it going?
+    intent: greet
+  - action: utter_greet
+  - user: |
+        amazing
+    intent: mood_great
+  - action: utter_happy
+  - user: |
+      can you recommend me something to watch?
+    intent: movie_Recs
+  - action: movie_form
+  - active_loop: movie_form
+  - user: |
+      [korean](language) movie please
+    intent: informLang
+  - action: movie_form
+  - active_loop: movie_form
+  - user: |
+      can i have a [comedy](genre) film please
+    intent: informGenre
+  - action: movie_form
+  - active_loop: null
+  - action: action_movieRecs
+  - user: |
+      thanks! bye
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: much shorter convo
+  steps:
+  - user: |
+      hi can I have a [hindi](language) [action](genre) movie please
+    intent: allAtOnce
+  - action: movie_form
+  - action: action_movieRecs
+  - user: |
+      thanks! bye
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: asking for movie with actor
+  steps:
+    - user: |
+        can you suggest a movie starring [Aamir Khan](PERSON) please
+      intent: askWithActor
+    - action: movie_actor_form
+    - action: action_movieRecsActor
+    - user: |
+        wow thanks!
+      intent: goodbye
+    - action: utter_goodbye
+
